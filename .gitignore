@@ -1,0 +1,25 @@
+# Secrets / local config
+.env
+browser-state.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE / macOS
+.idea/
+.DS_Store
+
+# Playwright artifacts
+videos/
+tracing/
+test-results/
+
+# Allure generated data
+allure-results/
+allure-report/
+
+# Pytest
+.pytest_cache/
