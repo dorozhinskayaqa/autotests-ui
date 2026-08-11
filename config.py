@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Self
 
 from pydantic import EmailStr, DirectoryPath, FilePath, HttpUrl, BaseModel
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -16,7 +17,9 @@ class TestUser(BaseModel):
     password: str
 
 class TestData(BaseModel):
-    image_png_file: FilePath
+    image_png_file_1: FilePath
+    image_png_file_2: FilePath
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -33,4 +36,23 @@ class Settings(BaseSettings):
     tracing_dir: DirectoryPath
     browser_state_file: FilePath
 
-print(Settings())
+    def get_base_url(self) -> str:
+        return f"{self.app_url}"
+
+    @classmethod
+    def initialize(cls) -> Self:
+        videos_dir = DirectoryPath("./videos")
+        tracing_dir = DirectoryPath("./tracing")
+        browser_state_file = FilePath("browser-state.json")
+
+        videos_dir.mkdir(exist_ok=True)
+        tracing_dir.mkdir(exist_ok=True)
+        browser_state_file.touch(exist_ok=True)
+
+        return Settings(
+            videos_dir=videos_dir,
+            tracing_dir=tracing_dir,
+            browser_state_file=browser_state_file
+        )
+
+settings = Settings.initialize()

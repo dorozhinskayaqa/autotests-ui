@@ -1,13 +1,15 @@
 import allure
 import pytest
 from allure_commons.types import Severity
-
+from config import settings
 from pages.courses.courses_list_page import CoursesListPage, CourseParams
 from pages.courses.create_course_page import CreateCoursePage
 from tools.allure.tags import AllureTag
 from tools.allure.epics import AllureEpic
 from tools.allure.features import AllureFeature
 from tools.allure.stories import AllureStory
+from tools.routes import AppRoute
+
 
 @pytest.mark.courses
 @pytest.mark.regression
@@ -44,10 +46,10 @@ class TestCourses:
     @allure.title("Create course")
     @allure.severity(Severity.CRITICAL)
     def test_create_course(self, create_course_page: CreateCoursePage, courses_list_page: CoursesListPage, params: CourseParams):
-        create_course_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create')
+        create_course_page.visit(AppRoute.COURSES_CREATE)
         create_course_page.course_toolbar.check_visible(is_create_course_disabled=True)
         create_course_page.image_upload_widget.check_visible(is_image_uploaded=False)
-        create_course_page.image_upload_widget.upload_preview_image('testdata/files/image.png')
+        create_course_page.image_upload_widget.upload_preview_image(settings.test_data.image_png_file_1)
         create_course_page.image_upload_widget.check_visible(is_image_uploaded=True)
         create_course_page.create_course_form.check_visible("", "", "", "0", "0")
         create_course_page.create_course_form.fill(
@@ -89,8 +91,8 @@ class TestCourses:
     @allure.severity(Severity.CRITICAL)
     def test_edit_course(self, create_course_page: CreateCoursePage, courses_list_page: CoursesListPage, initial_params: CourseParams,
     edited_params: CourseParams):
-        create_course_page.visit('https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create')
-        create_course_page.image_upload_widget.upload_preview_image('testdata/files/image2.png')
+        create_course_page.visit(AppRoute.COURSES_CREATE)
+        create_course_page.image_upload_widget.upload_preview_image(settings.test_data.image_png_file_2)
         create_course_page.create_course_form.fill(
             title=initial_params.title,
             estimated_time=initial_params.estimated_time,
