@@ -24,6 +24,7 @@ The repository is currently a work in progress and is continuously updated as I 
 - Test data handling
 - Allure reporting
 - Screenshots, tracing and video recording
+- Static resource blocking using Playwright routing to optimize test execution
 
 ## Project Structure
 
