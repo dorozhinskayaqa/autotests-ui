@@ -25,6 +25,7 @@ The repository is currently a work in progress and is continuously updated as I 
 - Allure reporting
 - Screenshots, tracing and video recording
 - Static resource blocking using Playwright routing to optimize test execution
+- Structured logging for UI interactions and assertions
 
 ## Project Structure
 
