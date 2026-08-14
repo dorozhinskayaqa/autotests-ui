@@ -87,11 +87,13 @@ Tests can also be filtered by name using the `-k` option:
 python -m pytest -k "test_name"
 ```
 
-## Reports 
+## Reports
 
 The project uses Allure for test reporting.
 
 Test execution artifacts such as screenshots, traces, and video recordings are collected to help investigate failed tests.
+
+Allure reports also include environment information, such as test configuration, operating system details, and Python version.
 
 ## Installation
 
