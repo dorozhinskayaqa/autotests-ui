@@ -16,6 +16,8 @@ venv/
 videos/
 tracing/
 test-results/
+*.html
+*.json
 
 # Allure generated data
 allure-results/
