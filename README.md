@@ -42,7 +42,7 @@ The repository is currently a work in progress and is continuously updated as I 
 - `tools/` — helper utilities
 - `config.py` — project configuration and environment settings
 - `requirements.txt` — project dependencies
-- `.env.example` — environment configuration template
+- `.env` — test environment configuration
 
 ## Installation
 
@@ -74,11 +74,15 @@ playwright install
 
 ## Configuration
 
-The project uses environment variables for configuration.
+The project uses environment variables for test configuration.
 
-Create a local `.env` file based on `.env.example` and configure the required values.
+For training purposes, the `.env` file is included in the repository and contains only non-sensitive test data and configuration.
 
-The `.env` file is used for local configuration and is not committed to the repository.
+The configuration includes:
+- Application URL
+- Browser settings
+- Test user credentials
+- Test data paths
 
 ## Running Tests
 

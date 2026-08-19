@@ -1,5 +1,4 @@
 # Secrets / local config
-.env
 browser-state.json
 
 # Python
