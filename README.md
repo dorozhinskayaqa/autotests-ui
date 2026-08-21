@@ -132,6 +132,13 @@ python -m pytest -k "test_name"
 
 The project uses Allure for test reporting.
 
-Test execution artifacts such as screenshots, Playwright traces, and video recordings are collected to help investigate test failures.
+Test execution artifacts such as screenshots, traces, and video recordings are collected to help investigate failed tests.
 
 Allure reports also include environment information, such as test configuration, operating system details, and Python version.
+
+When regression tests are executed in GitHub Actions:
+
+- Allure test results are generated automatically
+- An Allure HTML report is created after the test run
+- Report history is preserved between CI runs
+- The latest report is published to GitHub Pages
