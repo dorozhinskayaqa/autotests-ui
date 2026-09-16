@@ -1,8 +1,15 @@
-# UI Test Automation Project
+# UI Course Automation Tests
 
-UI test automation project developed as part of my QA Automation training.
+This project implements automated tests for
+the [UI Course Test Application](https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/auth/login). The
+tests are written using **Python**, **Pytest**, **Allure** and **Playwright**. The test application’s source code is available
+on [GitHub](https://github.com/Nikita-Filonov/qa-automation-engineer-ui-course).
 
-The repository is currently a work in progress and is continuously updated as I learn and implement new testing approaches.
+## Project Overview
+
+The goal of this project is to automate the testing of the UI Course application. The automated tests verify various
+functionalities of the application to ensure its stability and correctness. The project structure follows best practices
+for organizing test code with clear, maintainable scripts.
 
 ## Tech Stack
 
